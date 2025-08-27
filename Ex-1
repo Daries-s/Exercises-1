@@ -1,0 +1,157 @@
+using System.Threading.Channels;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        Ex01();
+        Ex02();
+        Ex03();
+        Ex04();
+        Ex05();
+        Ex06();
+        Ex07();
+        Ex08();
+        Ex09();
+        Ex10();
+
+    }
+    private static void Ex01()
+    // to Add / Sum Two Numbers
+    {
+        int so_thu_nhat = 7;
+        int so_thu_hai = 4;
+        int Ket_qua = so_thu_nhat + so_thu_hai;
+        Console.WriteLine($"Bai 1:\n Tong hai so la: {so_thu_nhat} + {so_thu_hai} = {Ket_qua}");
+    }
+    private static void Ex02()
+    // to Swap Values of Two Variables
+    {
+        int a = 7;
+        int b = 4;
+        Console.WriteLine($"Bai 2:\n Truoc khi hoan doi: a = {a}, b = {b}");
+        int c = b;
+        b = a;
+        Console.WriteLine($" Sau khi hoan doi: a = {c}, b = {a}");
+    }
+    private static void Ex03()
+    //  to Multiply two Floating Point Numbers
+    {
+        float so_thu_nhat = 7.4f;
+        float so_thu_hai = 4.2f;
+        float ket_qua = so_thu_nhat * so_thu_hai;
+        Console.WriteLine($"Bai 3: \n {so_thu_nhat} * {so_thu_hai} = {ket_qua}");
+    }
+    private static void Ex04()
+    //to convert feet to meter
+    {
+        float feet = 5.6f;
+        float ket_qua_chuyen_feet_sang_met = feet * 0.3048f;
+        Console.WriteLine($"Bai 4: Chuyen feet sang met:\n {feet} feet  = {ket_qua_chuyen_feet_sang_met} meter");
+    }
+    private static void Ex05()
+    // to convert Celsius to Fahrenheit and vice versa
+    {
+        float Celsius = 37.5f;
+        float Ket_qua = 1.8f * Celsius + 32f;
+        Console.WriteLine($"Bai 5: Chuyen do C sang do F\n {Celsius}°C = {Ket_qua}°F ");
+    }
+    private static void Ex06()
+    // to find the Size of data types
+    {
+        Console.Write("Bài 6: \nNhap vao kieu du lieu ban muon biet kich thuoc: ");
+        string kieuDuLieu = Console.ReadLine()!;
+
+        int ketQua; 
+
+        if (kieuDuLieu == "int")
+        {
+            ketQua = sizeof(int);
+        }
+        else if (kieuDuLieu == "double")
+        {
+            ketQua = sizeof(double);
+        }
+        else if (kieuDuLieu == "char")
+        {
+            ketQua = sizeof(char);
+        }
+        else if (kieuDuLieu == "float")
+        {
+            ketQua = sizeof(float);
+        }
+        else if (kieuDuLieu == "bool")
+        {
+            ketQua = sizeof(bool);
+        }
+        else if (kieuDuLieu == "decimal")
+        {
+            ketQua = sizeof(decimal);
+        }
+        else if (kieuDuLieu == "uint")
+        {
+            ketQua = sizeof(uint);
+        }
+        else if (kieuDuLieu == "long")
+        {
+            ketQua = sizeof(long);
+        }
+        else if (kieuDuLieu == "ulong")
+        {
+            ketQua = sizeof(ulong);
+        }
+        else if (kieuDuLieu == "short")
+        {
+            ketQua = sizeof(short);
+        }
+        else if (kieuDuLieu == "ushort")
+        {
+            ketQua = sizeof(ushort);
+        }
+        else
+        {
+            Console.WriteLine("Kieu du lieu khong hop le!");
+            return; // thoát chương trình luôn
+        }
+
+        Console.WriteLine($"Kich thuoc cua {kieuDuLieu} la: {ketQua} bytes");
+
+    }
+
+    private static void Ex07()
+    // 7. to Print ASCII Value (tip: read character, print number of this char)
+    {
+        Console.Write("Bai 8: \n Nhap ky tu bat ky tu ban phim: ");
+        char a = Console.ReadKey().KeyChar;
+        int b = (int)a;
+        Console.WriteLine($"\n Ky tu {a} chuyen sang ASCII la {b}");
+    }
+  
+    private static void Ex08()
+    //8. to Calculate Area of Circle
+    {
+        Console.Write("Bai 8: \n Nhap ban kinh hinh tron: ");
+        float r = Convert.ToSingle(Console.ReadLine());
+        float s = 3.14f * r * r;
+        Console.WriteLine($"Dien tich hinh tron co ban kinh {r} la: {s}");
+    }
+    private static void Ex09()
+    //to Calculate Area of Square
+    {
+        Console.Write("Bai 9: \n Nhap canh hinh vuong: ");
+        float a = Convert.ToSingle(Console.ReadLine());
+        float s = a * a;
+        Console.WriteLine($"Dien tich hinh vuong co ban kinh {a} la: {s}");
+    }
+    private static void Ex10()
+    //to convert days to years, weeks and days
+    {
+        Console.Write("Bai 10 \n Nhap so ngay can chuyen: ");
+        int days = Convert.ToInt32(Console.ReadLine());
+        int years = days / 365;
+        int weeks = (days - years * 365) / 7;
+        int daysleft = (days - years * 365 - weeks * 7);
+        Console.WriteLine($"{days} ngay chuyen sang: {years} nam, {weeks} tuan, {daysleft} ngay");
+    }
+}
